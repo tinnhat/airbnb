@@ -266,6 +266,7 @@
   border-radius: 50%;
   font-size: 1.6rem;
   margin-right: 4px;
+  cursor: pointer;
 }
 .header-box__icon-menu {
   padding: 14px 12px;
@@ -500,7 +501,7 @@
   flex-direction: column;
 }
 .modal-container {
-  height: 85%;
+  height: auto;
   width: 560px;
   border-radius: 10px;
   background-color: var(--white-color);
@@ -538,6 +539,7 @@
   padding: 4px 8px;
   color: var(--text-color);
   border-radius: 50%;
+  cursor: pointer;
 }
 .modal-container-close-icon {
   font-size: 16px;
@@ -629,11 +631,15 @@
   background-color: transparent;
   border: 2px solid #afafaf;
 }
+
 .modal-social-btn:hover {
   border: 2px solid #333;
 }
 .modal-social-btn:first-child {
   margin-top: 5px;
+}
+.modal-social-btn:last-child {
+  margin-bottom: 16px;
 }
 .modal-social-link {
   display: block;

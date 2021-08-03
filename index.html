@@ -561,10 +561,9 @@
     </script>
     <script>
 // if (window.innerWidth <= 740) {
-
-//    $(window).on('resize orientationchange', function() {
-//   $('.travel-position-row').slick('resize');
-// });
+//   $(window).on('resize orientationchange', function() {
+//     $('.travel-position-row').slick('resize');
+//   }); 
 //       $('.travel-position-row').slick({
 //   dots: true,
 //     speed: 500,
@@ -577,60 +576,34 @@
 //     mobileFirst: true,
 //     responsive: [
 //           {
-//                   breakpoint: 740,
-//                   settings: 'unslick'
+//                 breakpoint: 740,
+//                 settings: 'unslick'
 //           }
 //     ]
 //   });
- 
 // }
 // else
 // {
-
-//   $('.travel-position-row').filter(".slick-initialized").slick('unslick');
+//   $('.travel-position-row').slick('unslick');
 // }
-/* Get element */
-let slider = $('.travel-position-row');
- 
-/* Slider settings */
-let settings = {
-  dots: true,
-    speed: 500,
-    infinite: true,
-    autoplay: true,
-    fade: true,
-    autoplaySpeed: 3000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    mobileFirst: true,
-    responsive: [
-          {
-                  breakpoint: 740,
-                  settings: 'unslick'
-          }
-    ]
-}
- 
-/* Initialize the Slick slider */
+$(window).on("load resize", function(){
+    var width = $(document).width();
+     
+    if (width > 740) { 
+      $('.travel-position-row').filter('.slick-initialized').slick('unslick');
+    } else { 
+      $('.travel-position-row').not('.slick-initialized').slick({  
+        dots: true,
+        speed: 500,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        slidesToShow: 1, 
+        slidesToScroll: 1, 
+        infinite: true,
+      });
+    }
+  });
 
- 
-/* Do this every time window gets resized */
-$(window).on('resize', function() {
- 
-   /* If we are above mobile breakpoint unslick the slider */
-   if ($(window).width() > 740)
-   {
-    $('.travel-position-row').slick('unslick');
-   }
-  else
-  {
-    if (!slider.hasClass('slick-initialized'))
-   {
-      return slider.slick(settings);
-   }
-  }
-  
-});
      </script>
      
   </body>
